@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import {Content, Global} from './styles'
+import logo from './assets/img/logo.svg'
+import {Content, Global} from './react.style'
+//import {Content, Global} from './styles' /* Estilo opcional, para utiliza-lo descomente a linha e comente a de baixo */
+
 
 export default function App() {
 
@@ -30,37 +33,37 @@ export default function App() {
             <Global/>
             <div id="main">
                 { auth.show ? (
-                    <div id="title">
-                        <h1>Bem vindo { name[0] }!</h1>
-                    </div>
+                    <header className="Main" id="content">
+                        <img src={logo} className="Logo" alt="logo"/>
+                        <h1>Bem vindo { name[0] }</h1>
+                    </header>
                 ) : (
-                    <form id="content">
-                        <div>
-                            <div>
-                                <label htmlFor="email">Email</label>
-                                <input type={"email"}
-                                       name="email"
-                                       value={auth.email}
-                                       onChange={e => changeEmail(e.target.value)}
-                                />
-                            </div>
-                            <div>
-                                <label htmlFor="password">Senha</label>
-                                <input type={"password"}
-                                       name="password"
-                                       value={auth.password}
-                                       onChange={e => setAuth({...auth, password: e.target.value})}
-                                />
-                            </div>
+                    <div className="Main" id="content">
+                        <div >
+                            <img src={logo} className="Logo" alt="logo"/>
+                            <label className="Label" htmlFor="email">Email</label>
+                            <input type={"email"}
+                                   name="email"
+                                   className="Input"
+                                   value={auth.email}
+                                   onChange={e => changeEmail(e.target.value)}
+                            />
                         </div>
                         <div>
-                            <div>
-                                <button onClick={login}>
-                                    Login
-                                </button>
-                            </div>
+                            <label className="Label" htmlFor="password">Senha</label>
+                            <input type={"password"}
+                                   name="password"
+                                   className="Input"
+                                   value={auth.password}
+                                   onChange={e => setAuth({...auth, password: e.target.value})}
+                            />
                         </div>
-                    </form>
+                        <div>
+                            <button className="App-link" onClick={login}>
+                                Logar
+                            </button>
+                        </div>
+                    </div>
                 )}
             </div>
         </Content>

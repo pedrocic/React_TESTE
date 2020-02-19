@@ -22,7 +22,7 @@ export const Content = styled.div `
       background-image: url(${img});
       background-size: cover;
       background-position: top, center;
-      
+          
       #title {
           text-align: center;
           
@@ -76,7 +76,11 @@ export const Content = styled.div `
               box-shadow: inset 0 1px 3px #ddd;
               font: inherit;
           }
-          
+        
+      }
+      
+      .Logo {
+          display: none;
       }
       
 `;
